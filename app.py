@@ -9,9 +9,9 @@ app = Flask(__name__)
 CORS(app)
 
 
-@app.route('/', methods=['GET'])
+@app.route('/ping', methods=['GET'])
 def ping_pong():
-    return jsonify("hello world")
+    return jsonify("hello 123456")
 
 
 if __name__ == '__main__':
