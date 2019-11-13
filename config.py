@@ -4,6 +4,7 @@
 # @Author  : z.g
 
 import os
+import pymysql
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 
@@ -31,12 +32,12 @@ class Config:
 class DevelopmentConfig(Config):
     DEBUG = True
     SQLALCHEMY_DATABASE_URI = os.environ.get('DEV_DATABASE_URL') or \
-                                  'mysql://tc:123456@localhost/tcdev'
+                                  'mysql+pymysql://tc:123456@localhost/tcdev'
 
 
 class ProductionConfig(Config):
     SQLALCHEMY_DATABASE_URI = os.environ.get('DEV_DATABASE_URL') or \
-                              'mysql://tc:123456@localhost/tc'
+                              'mysql+pymysql://tc:123456@localhost/tc'
 
 config = {
     'development': DevelopmentConfig,
